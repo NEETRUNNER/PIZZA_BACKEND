@@ -1,0 +1,27 @@
+# Исключаем зависимости
+node_modules/
+pnpm-lock.yaml
+yarn.lock
+package-lock.json
+
+# Исключаем сборку фронтенда и бэкенда
+build/
+dist/
+
+# Исключаем окружение и конфиги
+.env
+.env.local
+.env.development
+.env.production
+
+# Исключаем логи
+npm-debug.log
+yarn-error.log
+logs/
+*.log
+
+# Исключаем IDE-файлы
+.vscode/
+.idea/
+.DS_Store
+*.swp
