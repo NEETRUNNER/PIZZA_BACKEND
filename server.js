@@ -5,9 +5,7 @@ const express = require('express');
 const app = express()
 
 const cors = require('cors')
-app.use(cors({ // Нужно было писать сверху чтобы оно работало сразу, а не за чем-то
-    origin: "http://localhost:5173",
-}))
+app.use(cors())
 
 const AuthRouter = require('./authRouter')
 
