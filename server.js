@@ -6,7 +6,7 @@ const app = express()
 
 const cors = require('cors')
 app.use(cors({
-    origin: ['https://neetrunner.github.io', 'http://localhost:5173/']
+    origin: '*'
 }))
 
 const AuthRouter = require('./authRouter')
