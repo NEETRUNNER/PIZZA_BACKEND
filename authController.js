@@ -44,8 +44,8 @@ class AuthController {
 
     async login (req, res) {
         try {
-            const {username, password} = req.body;
-            const user = await User.findOne({username}) // С помощью метода findOne ищем совпадения в базе данных, где username критерий поиска
+            const {email, password} = req.body;
+            const user = await User.findOne({email}) // С помощью метода findOne ищем совпадения в базе данных, где username критерий поиска
             if (!user) {
                 return res.status(400).json('Такой пользователь не найден')
             }
