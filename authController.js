@@ -22,8 +22,8 @@ class AuthController {
             if (!errors.isEmpty) { // Проверка, если ошибки не пустые
                 return res.status(400).json({message: 'Ошибка при регистрации', errors}) // Так мы возвращаем на сервер ошибку и с помошью метода json создаём сообщение
             }
-            const {username, password} = req.body;
-            const candidate = await User.findOne({username});
+            const {email, password} = req.body;
+            const candidate = await User.findOne({email});
 
             if (candidate) {
                 return res.status(400).json({message: 'Пользователь с таким именем уже существует'})
@@ -32,7 +32,7 @@ class AuthController {
             const hashPassword = bcrypt.hashSync(password, 7); // Это делается для того чтобы пароль хранился в базе данных уже захешированным
             
             const userRole = await Role.findOne({value: 'User'})
-            const user = new User({username, password: hashPassword, roles: [userRole.value]});
+            const user = new User({email, password: hashPassword, roles: [userRole.value]});
             await user.save();
             return res.json({message: 'Пользователь был успешно зарегистрирован'})
 
@@ -60,14 +60,6 @@ class AuthController {
         } catch {
             console.log(e)
             res.status(400).json({message: 'Login error'});   
-        }
-    }
-
-    async getPizzas (req, res) {
-        try {
-            res.status(200).json({message: 'Чё'})
-        } catch {
-
         }
     }
 
