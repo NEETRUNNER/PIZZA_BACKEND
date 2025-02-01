@@ -57,7 +57,7 @@ class AuthController {
 
             const token = generateAccesToken(user._id, user.roles);
             return res.json({token})
-        } catch {
+        } catch(e) {
             console.log(e)
             res.status(400).json({message: 'Login error'});   
         }
