@@ -1,10 +1,11 @@
-const User = require('./models/User')
-const Role = require('./models/Role')
+const User = require('../models/User')
+const Role = require('../models/Role')
+
 const bcrypt = require('bcryptjs'); // npm пакет для хеширования пароля
 const {validationResult} = require('express-validator')
 const jwt = require('jsonwebtoken')
 
-const {secret} = require('./secretKey')
+const {secret} = require('../secretKey');
 
 const generateAccesToken = (id, roles) => { // Генерируем токен с помощью функции
     const payload = {
@@ -71,6 +72,7 @@ class AuthController {
             console.log('Получение пользователей', e)
         }
     }
+
 }
 
 module.exports = new AuthController;
