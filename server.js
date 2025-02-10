@@ -11,6 +11,7 @@ app.use(cors({
 
 const AuthRouter = require('./Routes/authRouter');
 const PizzaRouter = require('./Routes/pizzaRouter')
+const OrderRouter = require('./Routes/orderRouter')
 
 const PORT = process.env.PORT | 5000;
 const bdUrl = process.env.MONGODB_URL;
@@ -19,6 +20,7 @@ app.use(express.json()) // Вызываем use чтобы он мог парс�
 
 app.use('/auth', AuthRouter);
 app.use('/pizza', PizzaRouter)
+app.use('/order', OrderRouter)
 
 const start = async () => {
     try {
@@ -30,6 +32,3 @@ const start = async () => {
 }
 
 start();
-
-/* Что такое CORS?
-CORS — это механизм, который браузеры используют для ограничения запросов между различными доменами. Чтобы запрос был выполнен успешно, сервер должен явно указать, что он разрешает доступ к своему ресурсу из другого домена (в данном случае с http://localhost:5173). */
