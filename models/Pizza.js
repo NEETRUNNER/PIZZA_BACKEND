@@ -6,8 +6,9 @@ const PizzaSchema = new Schema ({
     pizza_price: {type: Number, required: true},
     pizza_title: {type: String, required: true},
     pizza_weight: {type: String, required: true},
-    id: {type: String, required: true},
     pizza_counter: {type: Number, required: true},
+    category: { type: [String], required: true },
+    id: { type: String, required: true },
     amount: {type: Number, required: true},
     rating: {type: Number, required: true},
 })
