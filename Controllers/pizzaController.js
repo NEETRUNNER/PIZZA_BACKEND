@@ -161,6 +161,16 @@ class PizzaController {
             res.status(500).json({ error: "Ошибка сервера" });
         }
     }
+
+    async getRecomendationPizzas(req, res) {
+        try {
+            const RecomendationPizzas = await Pizza.aggregate([{$sample: {size: 4}}]); // Создали рандомную выборку для рекоммендованных пицц
+            res.json(RecomendationPizzas)
+        } catch(error) {
+            console.log(error);
+            res.status(500).json({error: "Ошибка получения рекомендаций"})
+        }
+    }
 }
 
 module.exports = new PizzaController;

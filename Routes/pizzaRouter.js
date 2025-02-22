@@ -8,6 +8,7 @@ pizzaRouter.get('/getPizzaList', controller.getPizzaList)
 pizzaRouter.get('/getPaginatePizza', controller.getPaginatePizza)
 
 pizzaRouter.get('/getPages', controller.getPages)
+pizzaRouter.get('/getRecomendationPizzas', controller.getRecomendationPizzas)
 
 pizzaRouter.get('/sortByPrice', controller.sortByPrice)
 pizzaRouter.get('/sortByCategory', controller.sortByCategory)
